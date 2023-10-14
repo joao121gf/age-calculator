@@ -22,14 +22,14 @@ body {
   border-radius: 20px;
   border-bottom-right-radius: 77px;
   margin: 100px auto;
-
+  max-width: 600px;
 }
 
 .date {
   display: flex;
-  justify-content: center;
   row-gap: 2px;
   padding-top: 42px;
+  margin-left: 32px;
 }
 input {
   width: 4.4rem;
@@ -56,6 +56,7 @@ input {
   left: 41%;
   position: relative;
   top: -29px;
+  cursor: pointer;
 }
 
 .line-content {
@@ -67,22 +68,18 @@ input {
   margin-top: 46px;
 }
 
-.results{
+.results {
   margin: 0 auto;
   display: grid;
-  justify-content: center;
+  margin-left: 32px;
 }
-.results h1{
+.results h1 {
   font-family: "Poppins", sans-serif;
   font-style: italic;
   font-size: 37px;
-
 }
 
-
-
-
-.results span::before {
+.results .active::before {
   content: "";
   display: inline-block;
   width: 26px;
@@ -92,7 +89,7 @@ input {
   margin-right: 10px;
 }
 
-.results span::after {
+.results .active::after {
   content: "";
   display: inline-block;
   width: 26px;
@@ -100,4 +97,29 @@ input {
   background-color: hsl(259, 100%, 65%);
   margin-bottom: 10px;
   margin-right: 10px;
+}
+
+
+.activeNone::after{
+  content: "";
+  display: inline-block;
+  width: 26px;
+  height: 7px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  color: hsl(259, 100%, 65%);
+}
+
+.activeNone::after{
+  content: "";
+  display: inline-block;
+  width: 26px;
+  height: 7px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  color: hsl(259, 100%, 65%);
+}
+
+.activeNone{
+  color: hsl(259, 100%, 65%);
 }

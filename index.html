@@ -12,30 +12,31 @@
         <div class="date">
           <div class="day">
             <p>DAY</p>
-            <input type="text" placeholder="DD" maxlength="2" />
+            <input class="dayData" type="text" placeholder="DD" maxlength="2" />
           </div>
           <div class="mounth">
             <p>MOUNTH</p>
-            <input type="text" placeholder="MM" maxlength="2" />
+            <input class="mounthData" type="text" placeholder="MM" maxlength="2" />
           </div>
           <div class="year">
             <p>YEAR</p>
-            <input type="text" placeholder="YY" maxlength="4" />
+            <input class="yearData" type="text" placeholder="YY" maxlength="4" />
           </div>
         </div>
         <div class="line">
           <span class="line-content"></span>
-          <img
+          <img class="btn"
             src="elements/scripts/age-calculator-app-main/assets/images/icon-arrow.svg"
             alt="Arrow"
           />
         </div>
         <div class="results">
-          <h1><span class="yResults"></span>YEARS</h1>
-          <h1><span class="mResults"></span>MONTHS</h1>
-          <h1><span class="dResults"></span>DAYS</h1>
+          <h1><span class="yResults active"></span>YEARS</h1>
+          <h1><span class="mResults active"></span>MONTHS</h1>
+          <h1><span class="dResults active"></span>DAYS</h1>
         </div>
       </section>
     </main>
+    <script src="script.js"></script>
   </body>
 </html>
