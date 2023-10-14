@@ -22,7 +22,7 @@ window.addEventListener("load", function () {
     results.forEach((i) => {
       i.classList.remove("active");
       i.classList.add("activeNone");
-      i.innerHTML = day.value;
+      
       let ageUser = yearToday - parseInt(year.value);
       let daysOff = dayToday - day.value;
       if (daysOff < 0){
@@ -34,6 +34,10 @@ window.addEventListener("load", function () {
       }
 
       console.log(ageUser, monthOff, daysOff);
+      results[2].innerHTML = ageUser
+      results[1].innerHTML = monthOff
+      results[0].innerHTML = daysOff
+
     });
   }
   btn.addEventListener("click", showAge);
