@@ -123,3 +123,24 @@ input {
 .activeNone{
   color: hsl(259, 100%, 65%);
 }
+
+
+
+.error {
+  color: hsl(0, 100%, 67%) !important;
+  font-weight: 100;
+  font-size: 10px;
+  font-style: italic;
+  padding: 4px 0px !important;
+  opacity: 0;
+}
+
+
+.errorActive{
+  color: hsl(0, 100%, 67%) !important;
+}
+
+input.errorActive{
+  border: 1px solid hsl(0, 100%, 67%);
+  color: black !important;
+}

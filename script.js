@@ -15,36 +15,82 @@ window.addEventListener("load", function () {
   let monthToday = dateActl.getMonth() + 1;
   let yearToday = dateActl.getFullYear();
 
-  console.log(results[2].innerHTML);
-  console.log(monthToday);
-
   function showAge() {
-    results.forEach((i) => {
-      i.classList.remove("active");
-      i.classList.add("activeNone");
+    const p = document.querySelectorAll(".p");
+    console.log(p);
+    const input = document.querySelectorAll("input");
+    const secondP = document.querySelectorAll(".secondP");
+    function check() {
+      let cont = 0;
+      if (day.value <= 0 || day.value > 31 || isNaN(day.value)) {
+        cont += 1;
+        secondP[0].style.opacity = 1;
+      } else {
+        secondP[0].style.opacity = 0;
+      }
+      if (month.value < 1 || month.value > 12 || isNaN(month.value)) {
+        cont += 1;
+        secondP[1].style.opacity = 1;
+      } else {
+        secondP[1].style.opacity = 0;
+      }
+      if (year.value < 1500 || year.value > 2023 || isNaN(month.value)) {
+        cont += 1;
+        secondP[2].style.opacity = 1;
+      } else {
+        secondP[2].style.opacity = 0;
+      }
 
-      let ageUser = yearToday - parseInt(year.value);
-      let daysOff = dayToday - day.value;
-      if (daysOff < 0) {
-        daysOff += 30;
+      if (cont > 0) {
+        input.forEach((i) => {
+          i.classList.add("errorActive");
+        });
+        p.forEach((i) => {
+          i.classList.add("errorActive");
+        });
+      } else {
+        input.forEach((i) => {
+          i.classList.remove("errorActive");
+        });
+        p.forEach((i) => {
+          i.classList.remove("errorActive");
+        });
+        return (check = true);
       }
-      let monthOff = monthToday - month.value;
-      if (monthToday - month.value <= 0 && dayToday < day.value) {
-        monthOff += 11;
-      }
-      if (monthToday <= year.value && dayToday <= day.value) {
-        ageUser -= 1;
-      }
-      if (day.value == dayToday && monthToday == month.value) {
-        ageUser += 1;
-        monthOff = 0
-      }
+    }
+    check();
+    if (check === true) {
+      math();
+    }
+    function math() {
+      results.forEach((i) => {
+        i.classList.remove("active");
+        i.classList.add("activeNone");
 
-      console.log(ageUser, monthOff, daysOff);
-      results[2].innerHTML = ageUser;
-      results[1].innerHTML = monthOff;
-      results[0].innerHTML = daysOff;
-    });
+        let ageUser = yearToday - parseInt(year.value);
+        let daysOff = dayToday - day.value;
+
+        //Se o mês atual for maior ou igual ao mês de nascimento, você já terá a contagem de meses. Se o mês atual for menor que o mês de nascimento, subtraia 1 do número de anos e some 12 ao número de meses.
+        let monthOff = monthToday - month.value;
+        if (monthToday < month.value) {
+          ageUser -= 1;
+          monthOff += 12;
+        }
+        if (daysOff < 0) {
+          daysOff += 30;
+          monthOff -= 1
+        }
+
+        if (day.value == dayToday && monthToday == month.value) {
+          ageUser += 1;
+          monthOff = 0;
+        }
+
+        results[2].innerHTML = ageUser;
+        results[1].innerHTML = monthOff;
+        results[0].innerHTML = daysOff;
+      });
+    }
   }
   btn.addEventListener("click", showAge);
 });
