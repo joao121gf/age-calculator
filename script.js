@@ -70,7 +70,6 @@ window.addEventListener("load", function () {
         let ageUser = yearToday - parseInt(year.value);
         let daysOff = dayToday - day.value;
 
-        //Se o mês atual for maior ou igual ao mês de nascimento, você já terá a contagem de meses. Se o mês atual for menor que o mês de nascimento, subtraia 1 do número de anos e some 12 ao número de meses.
         let monthOff = monthToday - month.value;
         if (monthToday < month.value) {
           ageUser -= 1;
@@ -78,7 +77,7 @@ window.addEventListener("load", function () {
         }
         if (daysOff < 0) {
           daysOff += 30;
-          monthOff -= 1
+          monthOff -= 1;
         }
 
         if (day.value == dayToday && monthToday == month.value) {
@@ -93,4 +92,9 @@ window.addEventListener("load", function () {
     }
   }
   btn.addEventListener("click", showAge);
+  this.document.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+      showAge();
+    }
+  });
 });
