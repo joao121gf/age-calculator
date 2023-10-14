@@ -22,22 +22,27 @@ window.addEventListener("load", function () {
     results.forEach((i) => {
       i.classList.remove("active");
       i.classList.add("activeNone");
-      
+
       let ageUser = yearToday - parseInt(year.value);
       let daysOff = dayToday - day.value;
-      if (daysOff < 0){
-        daysOff += 30
+      if (daysOff < 0) {
+        daysOff += 30;
       }
       let monthOff = monthToday - month.value;
       if (monthToday - month.value < 0) {
         monthOff += 11;
       }
+      if (monthToday <= year.value && dayToday <= day.value) {
+        ageUser -= 1;
+      }
+      if (day.value == dayToday && monthToday == month.value) {
+        ageUser += 1;
+      }
 
       console.log(ageUser, monthOff, daysOff);
-      results[2].innerHTML = ageUser
-      results[1].innerHTML = monthOff
-      results[0].innerHTML = daysOff
-
+      results[2].innerHTML = ageUser;
+      results[1].innerHTML = monthOff;
+      results[0].innerHTML = daysOff;
     });
   }
   btn.addEventListener("click", showAge);
