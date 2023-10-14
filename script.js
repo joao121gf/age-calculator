@@ -29,7 +29,7 @@ window.addEventListener("load", function () {
         daysOff += 30;
       }
       let monthOff = monthToday - month.value;
-      if (monthToday - month.value < 0) {
+      if (monthToday - month.value <= 0 && dayToday < day.value) {
         monthOff += 11;
       }
       if (monthToday <= year.value && dayToday <= day.value) {
@@ -37,6 +37,7 @@ window.addEventListener("load", function () {
       }
       if (day.value == dayToday && monthToday == month.value) {
         ageUser += 1;
+        monthOff = 0
       }
 
       console.log(ageUser, monthOff, daysOff);
