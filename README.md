@@ -1,5 +1,5 @@
 # age-calculator
- Exercice from Java Script Mentor
+ Calculadora de tempo de vida
 
 
 ![Imagem do projeto](./elements/age.png)
